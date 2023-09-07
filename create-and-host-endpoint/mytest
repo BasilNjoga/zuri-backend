@@ -1,0 +1,20 @@
+https://github.com/BasilNjoga/zuri-backend.git
+
+{"slack_name":  "Basil Njoga",
+            "current_day": "j",
+            "utc_time": "n",
+            "track": "",
+            "github_file_url": "",
+            "github_repo_url": 200}
+
+
+
+    
+@app.get("/slack_name")
+async def root():
+    return {"slack_name":  "Basil Njoga",
+            "current_day": "day",
+            "utc_time": "time",
+            "track": "backend",
+            "github_file_url": "lkd;fja",
+            "github_repo_url": 200}

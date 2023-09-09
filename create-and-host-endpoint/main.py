@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 app = FastAPI()
 
 currentDateTime = datetime.now(timezone.utc)
+utcTime = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 #api methods
@@ -13,7 +14,7 @@ currentDateTime = datetime.now(timezone.utc)
 async def root(slack_name: str, track: str):
     return {"slack_name":  slack_name,
             "current_day": currentDateTime.strftime('%A'),
-            "utc_time": currentDateTime.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "utc_time": utcTime,
             "track": track,
             "github_file_url": "https://github.com/BasilNjoga/zuri-backend/blob/main/create-and-host-endpoint/main.py",
             "github_repo_url": "https://github.com/BasilNjoga/zuri-backend/tree/main/create-and-host-endpoint",

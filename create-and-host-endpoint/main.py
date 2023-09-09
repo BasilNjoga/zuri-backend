@@ -9,7 +9,7 @@ currentDateTime = datetime.now(timezone.utc)
 
 
 #api methods
-@app.get("/")
+@app.get("/api")
 async def root(slack_name: str, track: str):
     return {"slack_name":  slack_name,
             "current_day": currentDateTime.strftime('%A'),

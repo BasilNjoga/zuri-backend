@@ -5,8 +5,10 @@ from datetime import datetime, timezone
 
 app = FastAPI()
 
-currentDateTime = datetime.now(timezone.utc)
+
 utcTime = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+currentDateTime = datetime.now(timezone.utc)
+
 
 
 #api methods

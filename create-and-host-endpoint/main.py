@@ -1,23 +1,22 @@
 from fastapi import FastAPI
+from datetime import datetime, timezone
+ 
 
 
 app = FastAPI()
 
-# app.middleware('HTTPs')
+currentDateTime = datetime.now(timezone.utc)
 
+
+#api methods
 @app.get("/")
-async def root():
-    return {"slack_name":  "Basil Njoga",
-            "current_day": "day",
-            "utc_time": "time",
-            "track": "backend",
-            "github_file_url": "lkd;fja",
-            "github_repo_url": 200}
-
-@app.get("/tracks")
-async def root():
-    return {"slack_name":  "Basil Njoga",
-            "current_day": "day",
-            "utc_time": "time",}
+async def root(slack_name: str, track: str):
+    return {"slack_name":  slack_name,
+            "current_day": currentDateTime.strftime('%A'),
+            "utc_time": currentDateTime.time(),
+            "track": track,
+            "github_file_url": "https://github.com/BasilNjoga/zuri-backend/blob/main/create-and-host-endpoint/main.py",
+            "github_repo_url": "https://github.com/BasilNjoga/zuri-backend/tree/main/create-and-host-endpoint",
+            "status_code": 200,}
 
 

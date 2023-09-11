@@ -6,6 +6,7 @@ dj-database-url==2.1.0
 Django==4.2.5
 django-filter==23.2
 djangorestframework==3.14.0
+gunicorn==21.2.0
 Markdown==3.4.4
 mypy-extensions==1.0.0
 packaging==23.1

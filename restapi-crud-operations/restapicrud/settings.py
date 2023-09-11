@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "person.apps.PersonConfig",
 ]
 
 MIDDLEWARE = [
@@ -75,12 +77,12 @@ WSGI_APPLICATION = "restapicrud.wsgi.application"
 
 DATABASES = {
     "default": {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "restapicrud",
-        'USER': "restapicrud",
-        'PASSWORD': "root",
-        'HOST': "localhost",
-        'PORT': "5432",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "restapicrud",
+        "USER": "restapicrud",
+        "PASSWORD": "root",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 

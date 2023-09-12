@@ -3,7 +3,7 @@ black==23.3.0
 click==8.1.7
 colorama==0.4.6
 dj-database-url==2.1.0
-Django==4.2.5
+Django==3.2.21
 django-filter==23.2
 djangorestframework==3.14.0
 gunicorn==21.2.0

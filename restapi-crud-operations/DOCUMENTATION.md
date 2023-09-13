@@ -6,20 +6,20 @@
 
 To use the api you can use your browser visiting the url at
 
-https://127.0.0.1:8000/api
+https://backend-django-restapi.onrender.com/api/
 
 Similarly you can use pythons requests module to query the api as shown below
 
 ### To perform a get request
 
-You can then query the api locally by using your browser or the pythons request module as shown below
+You can then query the api locally by using postman or the pythons request module as shown below
 
 ```
 #!/usr/bin/python3
 
 import requests
 
-response = requests.get("http://127.0.0.1:8000/api/")
+response = requests.get("https://backend-django-restapi.onrender.com/api/")
 
 print(response.status)
 print(response.json())
@@ -39,7 +39,7 @@ it would give you a response similar to this
 
 ```
 
-response.post("http://127.0.0.1:8000/api/", data={"name": "myname"})
+response.post("https://backend-django-restapi.onrender.com/api/", data={"name": "myname"})
 
 ```
 
@@ -47,7 +47,7 @@ response.post("http://127.0.0.1:8000/api/", data={"name": "myname"})
 
 ```
 
-response.put("http://127.0.0.1:8000/api/user-id, data={"name": "mynewname"})
+response.put(https://backend-django-restapi.onrender.com/api/, data={"name": "mynewname"})
 
 ```
 
@@ -55,7 +55,7 @@ response.put("http://127.0.0.1:8000/api/user-id, data={"name": "mynewname"})
 
 ```
 
-response.delete(http://127.0.0.1:8000/api/user-id)
+response.delete(https://backend-django-restapi.onrender.com/api/)
 
 ```
 

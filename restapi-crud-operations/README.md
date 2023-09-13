@@ -1,4 +1,4 @@
-## Django Crud API
+# Django Crud API
 
 This is a restfull api built on django and django rest framework and it delivers names and a unique id for names from a postgresql database being served from a render server.
 
@@ -10,9 +10,14 @@ It allows you to perfom crud operations such as viewing the api response, put, p
 
 - [API DOCUMENTATION](https://github.com/BasilNjoga/zuri-backend/blob/main/restapi-crud-operations/DOCUMENTATION.md)
 
-![UML DIAGRAM](https://content.codecademy.com/courses/learn-cpp/community-challenge/highfive.gif 'Model and Classes UML')
 
 
+![Let's go](https://content.codecademy.com/courses/learn-cpp/community-challenge/highfive.gif 'Model and Classes UML')
+
+
+### Model UML Diagram
+
+![UML DIAGRAM](https://github.com/BasilNjoga/zuri-backend/blob/main/restapi-crud-operations/django-rest-uml.png 'Model and Classes UML')
 
 ### Set up the API Locally
 

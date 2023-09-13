@@ -1,34 +1,77 @@
 from django.shortcuts import render
 from .models import PersonDetail
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
 from rest_framework import generics
 from .serializers import PersonDetailSerializer
 
 
-class PersonDetailCreate(generics.CreateAPIView):
-    # an API endpoint to allow us to create a new person
-    queryset = PersonDetail.objects.all()
-    serializer_class = PersonDetailSerializer
+class PersonDetailList(APIView):
+    def get(self, request):
+        obj = PersonDetail.objects.all()
+        serializer = PersonDetailSerializer(obj, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        serializer = PersonDetailSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 
-class PersonDetailList(generics.ListAPIView):
-    # an API endpoint that allows a person to be viewed
-    queryset = PersonDetail.objects.all()
-    serializer_class = PersonDetailSerializer
+class PersonInfo(APIView):
+    def get(self, request, id):
+        try:
+            obj = PersonDetail.objects.get(id=id)
 
+        except PersonDetail.DoesNotExist:
+            msg = {"msg": "not found"}
+            return Response(msg, status=status.HTTP_404_NOT_FOUND)
 
-class PersonDetails(generics.RetrieveAPIView):
-    # This API endpoint allows us to return a single persons details by userid
-    queryset = PersonDetail.objects.all()
-    serializer_class = PersonDetailSerializer
+        serializer = PersonDetailSerializer(obj)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
+    def put(self, request, id):
+        try:
+            obj = PersonDetail.objects.get(id=id)
 
-class PersonDetailUpdate(generics.RetrieveUpdateAPIView):
-    # This API endpoint allows a persons details to be updated
-    queryset = PersonDetail.objects.all()
-    serializer_class = PersonDetailSerializer
+        except PersonDetail.DoesNotExist:
+            msg = {"msg": "not found error"}
 
+            return Response(msg, status=status.HTTP_404_NOT_FOUND)
 
-class PersonDetailDelete(generics.RetrieveDestroyAPIView):
-    # This API endpoint allows a person to delete a persons details
-    queryset = PersonDetail.objects.all()
-    serializer_class = PersonDetailSerializer
+        serializer = PersonDetailSerializer(obj, data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_205_RESET_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def patch(self, request, id):
+        try:
+            obj = PersonDetail.objects.get(id=id)
+
+        except PersonDetail.DoesNotExist:
+            msg = {"msg": "not found error"}
+
+            return Response(msg, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = PersonDetailSerializer(obj, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_205_RESET_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, id):
+        try:
+            obj = PersonDetail.objects.get(id=id)
+
+        except PersonDetail.DoesNotExist:
+            msg = {"msg": "not found"}
+            return Response(msg, status=status.HTTP_404_NOT_FOUND)
+
+        obj.delete()
+        return Response({"msg": "deleted"}, status=status.HTTP_204_NO_CONTENT)

@@ -47,7 +47,7 @@ response.post("https://backend-django-restapi.onrender.com/api/", data={"name": 
 
 ```
 
-response.put(https://backend-django-restapi.onrender.com/api/, data={"name": "mynewname"})
+response.put("https://backend-django-restapi.onrender.com/api/", data={"name": "mynewname"})
 
 ```
 
@@ -55,7 +55,7 @@ response.put(https://backend-django-restapi.onrender.com/api/, data={"name": "my
 
 ```
 
-response.delete(https://backend-django-restapi.onrender.com/api/)
+response.delete("https://backend-django-restapi.onrender.com/api/")
 
 ```
 

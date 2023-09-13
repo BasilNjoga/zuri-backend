@@ -12,33 +12,33 @@ It allows you to perfom crud operations such as viewing the api response, put, p
 
 ![UML DIAGRAM](https://content.codecademy.com/courses/learn-cpp/community-challenge/highfive.gif 'Model and Classes UML')
 
-<br/>
+
 
 ### Set up the API Locally
 
-** Clone this directory **
+**Clone this directory**
 
 ```
 git clone  < directory link >
 
 ```
 
-** install python and pip **
+**install python and pip**
 
-** create a virtual environment **
+**create a virtual environment**
 
 ```
 python -m venv virt
 
 ```
-** start your virtual environment **
+**start your virtual environment**
 
 ```
 source virt/Scripts/activate
 
 ```
 
-** Install django, drf and all required dependancies **
+**Install django, drf and all required dependancies**
 
 ```
 pip install -r requirements.txt
@@ -46,7 +46,7 @@ pip install -r requirements.txt
 ```
 
 
-** change to root directory **
+**change to root directory**
 
 ```
 cd ..
@@ -55,14 +55,14 @@ cd ..
 
 
 
-** Start your server locally **
+**Start your server locally**
 
 ```
 python manage.py runserver
 
 ```
 
-<br/>
+
 ### USAGE
 
 To use the api you can use your browser visiting the url at

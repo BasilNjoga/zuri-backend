@@ -1,3 +1,5 @@
+# Django rest API Documentation
+
 To use the api you can use your browser visiting the url at
 
 https://127.0.0.1:8000/api
